@@ -1,0 +1,31 @@
+﻿<Window x:Class="Zweiradverleih.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zweiradverwaltung" Height="477" Width="805" Icon="1392137953_132075.ico" ResizeMode="CanMinimize" Closing="Window_Closing">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Niederlassung">
+                <MenuItem Header="_Neu" Click="New_Click"/>
+                <MenuItem Header="_Öffnen" Click="Open_Click"/>
+                <MenuItem Header="_Schleißen" Click="Close_Click"/>
+            </MenuItem>
+            <MenuItem Name="RelMen" Header="_Reload" Click="Reload_Click"/>
+        </Menu>
+        <StatusBar Name="statusbar" DockPanel.Dock="Bottom">
+            <StatusBarItem HorizontalAlignment="Right" Name="VersionStamp" ToolTip="BD">
+                Version 1.0.?.?
+            </StatusBarItem>
+        </StatusBar>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220*"/>
+                <ColumnDefinition Width="573*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Name="Fahrzeuge" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="380" Width="560" ItemsSource="{Binding}" IsReadOnly="True" Grid.Column="1"/>
+            <Button Name="OpenData" Content="Öffnen" Margin="70,319,70,0" VerticalAlignment="Top" Click="OpenData_Click"/>
+            <Button Name="AddData" Content="Neu" Margin="70,344,70,0" VerticalAlignment="Top" Click="AddData_Click"/>
+            <Button Name="RemData" Content="Löschen" Margin="70,369,70,0" VerticalAlignment="Top" Click="RemData_Click"/>
+
+        </Grid>
+    </DockPanel>
+</Window>
